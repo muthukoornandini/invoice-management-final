@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import API from "../api/api";
 
 function Dashboard() {
 
@@ -8,20 +9,31 @@ function Dashboard() {
   const [dashboard, setDashboard] = useState({
     customers: 0,
     invoices: 0,
-    revenue: 0
+    revenue: 0,
   });
 
 
   useEffect(() => {
 
-    fetch("http://localhost:5000/api/dashboard")
-      .then((response) => response.json())
-      .then((data) => {
-        setDashboard(data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    const getDashboard = async () => {
+
+      try {
+
+        const response = await API.get("/dashboard");
+
+        setDashboard(response.data);
+
+      } 
+      catch (error) {
+
+        console.log("Dashboard Error:", error);
+
+      }
+
+    };
+
+
+    getDashboard();
 
   }, []);
 
@@ -35,6 +47,7 @@ function Dashboard() {
     window.location.href = "/";
 
   };
+
 
 
   return (
@@ -78,7 +91,9 @@ function Dashboard() {
 
 
 
+
         <div className="row">
+
 
 
           <div className="col-md-4">
@@ -91,6 +106,7 @@ function Dashboard() {
                 {dashboard.customers}
               </h1>
 
+
               <Link
                 to="/customers"
                 className="btn btn-primary"
@@ -98,9 +114,11 @@ function Dashboard() {
                 Customers
               </Link>
 
+
             </div>
 
           </div>
+
 
 
 
@@ -115,12 +133,14 @@ function Dashboard() {
                 {dashboard.invoices}
               </h1>
 
+
               <Link
                 to="/invoices"
                 className="btn btn-warning"
               >
                 Invoices
               </Link>
+
 
             </div>
 
@@ -140,16 +160,21 @@ function Dashboard() {
                 ₹{dashboard.revenue}
               </h1>
 
+
               <p>
                 Total Revenue
               </p>
+
 
             </div>
 
           </div>
 
 
+
         </div>
+
+
 
 
 
