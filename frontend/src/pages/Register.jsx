@@ -43,18 +43,18 @@ function Register() {
 
     } catch (error) {
 
-      console.log(
-        "BACKEND ERROR:",
-        error.response?.data
-      );
+  console.log("FULL ERROR:", error);
 
+  console.log("STATUS:", error.response?.status);
 
-      alert(
-        error.response?.data?.message ||
-        "Registration failed"
-      );
+  console.log("RESPONSE:", error.response?.data);
 
-    }
+  alert(
+    JSON.stringify(error.response?.data) ||
+    error.message
+  );
+
+}
 
   };
 
