@@ -369,36 +369,35 @@ return (
 
             <td>{invoice.status}</td>
 
-            <td></td>
-                          <button
-                className="btn btn-info btn-sm me-1"
-                onClick={() => viewInvoice(invoice)}
-              >
-                View
-              </button>
+            <td>
+  <button
+    className="btn btn-info btn-sm me-1"
+    onClick={() => viewInvoice(invoice)}
+  >
+    View
+  </button>
 
-              <button
-                className="btn btn-warning btn-sm me-1"
-                onClick={() => editInvoice(invoice)}
-              >
-                Edit
-              </button>
+  <button
+    className="btn btn-warning btn-sm me-1"
+    onClick={() => editInvoice(invoice)}
+  >
+    Edit
+  </button>
 
-              <button
-                className="btn btn-success btn-sm me-1"
-                onClick={() => downloadPDF(invoice)}
-              >
-                PDF
-              </button>
+  <button
+    className="btn btn-success btn-sm me-1"
+    onClick={() => downloadPDF(invoice)}
+  >
+    PDF
+  </button>
 
-              <button
-                className="btn btn-danger btn-sm"
-                onClick={() => deleteInvoice(invoice.id)}
-              >
-                Delete
-              </button>
-
-            </td>
+  <button
+    className="btn btn-danger btn-sm"
+    onClick={() => deleteInvoice(invoice.id)}
+  >
+    Delete
+  </button>
+</td>
 
           </tr>
 
