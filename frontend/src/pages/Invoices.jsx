@@ -25,8 +25,7 @@ function Invoices() {
   const total = quantity * price;
 
 
-  const API = "http://localhost:5000/api/invoices";
-
+  const API = "https://invoice-management-final.onrender.com/api/invoices";
 
 
   const getInvoices = async()=>{
@@ -54,8 +53,7 @@ function Invoices() {
   useEffect(()=>{
 
 
-    fetch("http://localhost:5000/api/customers")
-
+    fetch("https://invoice-management-final.onrender.com/api/customers")
     .then(res=>res.json())
 
     .then(data=>{
