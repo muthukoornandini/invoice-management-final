@@ -27,9 +27,10 @@ function Login() {
     try {
 
       const response = await API.post(
-        "/auth/login",
-        formData
-      );
+  "/login",
+  formData
+);
+    
 
 
       alert(response.data.message);
